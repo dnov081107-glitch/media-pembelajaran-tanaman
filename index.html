@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayo Mengenal Tanaman!</title>
+<style>
+:root{--green:#287a45;--light:#eaf7e9;--yellow:#ffe99a;--ink:#26352a;--pink:#ffe4e8;--blue:#e5f3ff}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Trebuchet MS",Arial,sans-serif;background:linear-gradient(135deg,#f2ffed,#fff9e7);color:var(--ink)}
+header{padding:14px 5%;display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fff9;border-bottom:2px solid #d7ebd1;position:sticky;top:0;z-index:5}
+.brand{font-weight:900;color:var(--green);font-size:1.1rem}
+header small{color:#617363}
+main{max-width:980px;margin:24px auto;padding:0 16px 40px}
+.panel{background:white;border:3px solid #d8edd3;border-radius:26px;padding:clamp(18px,4vw,34px);box-shadow:0 8px 24px #477c3512}
+.page{display:none}.page.active{display:block}
+h1,h2{text-align:center;color:var(--green);margin-top:8px}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1}
+h2{font-size:clamp(1.5rem,4vw,2.2rem)}
+p{font-size:1.12rem;line-height:1.6;text-align:center}
+.hero-art{display:block;width:min(100%,480px);margin:8px auto}
+button{border:0;border-radius:18px;padding:13px 20px;font-size:1rem;font-weight:800;cursor:pointer;background:var(--green);color:white;box-shadow:0 4px 0 #19572e;transition:.15s}
+button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+button:focus-visible{outline:4px solid #f2c94c;outline-offset:3px}
+button.secondary{background:#f3b82f;color:#43320a;box-shadow:0 4px 0 #bd8715}
+button.soft{background:#e7f4e5;color:#235b34;box-shadow:0 4px 0 #c7dfc3}
+.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:22px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;margin:22px 0}
+.card{background:#f5fbf2;border:2px solid #dcefd6;border-radius:20px;padding:16px;text-align:center}
+.card .emoji{font-size:3rem;display:block}
+.card h3{margin:8px 0 5px;color:var(--green)}
+.card p{font-size:.98rem;margin:5px 0}
+.note{background:#fff6d8;border-radius:16px;padding:12px 16px;margin:18px 0;text-align:center}
+.progress{height:9px;background:#e6eee2;border-radius:99px;overflow:hidden;width:140px}
+.progress span{display:block;height:100%;background:#53a65d;width:0;transition:.3s}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.quizbox{max-width:650px;margin:18px auto;text-align:center}
+.question{font-size:1.35rem;font-weight:900;color:#345b38;margin:18px 0}
+.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.option{background:#f3f9ff;color:#254c70;box-shadow:0 4px 0 #c4dcec;border:2px solid #d3e9f7;font-size:1.1rem;min-height:85px}
+.option .emoji{font-size:2rem;display:block}
+.feedback{min-height:56px;padding:12px;border-radius:15px;margin:16px 0;font-weight:800;text-align:center}
+.feedback.good{background:#e2f7e4;color:#206333}.feedback.try{background:#fff1cf;color:#77510c}
+.matchgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px;margin:20px 0}
+.matchitem{background:#f6fbf4;color:#285c35;box-shadow:0 4px 0 #d0e7ca;border:2px solid #d7ebd1;min-height:105px}
+.matchitem.selected{outline:4px solid #f4c94d;background:#fff8dc}
+.matchitem.done{background:#e2f7e4;border-color:#8dcc91;box-shadow:0 4px 0 #b2dbb4}
+footer{text-align:center;color:#718171;font-size:.9rem;padding:10px}
+@media(max-width:520px){header{align-items:flex-start;flex-direction:column}.topline{align-items:flex-start;flex-direction:column}.progress{width:100%}}
+</style>
+</head>
+<body>
+<header><div class="brand">🌱 BELAJAR SAMBIL BERMAIN</div><small>Kelompok B • Usia 5–6 Tahun</small></header>
+<main>
+<section class="panel page active" id="home">
+  <h1>AYO MENGENAL TANAMAN!</h1>
+  <p>Yuk, belajar mengenal bagian-bagian tanaman dengan cara yang menyenangkan!</p>
+  <svg class="hero-art" viewBox="0 0 500 300" role="img" aria-label="Ilustrasi tanaman dengan akar, batang, daun, bunga, dan buah">
+    <path d="M250 65 Q240 130 250 205" stroke="#39834b" stroke-width="13" fill="none" stroke-linecap="round"/>
+    <path d="M250 205 Q220 230 205 270 M250 205 Q270 235 290 270 M245 220 Q225 245 225 278 M260 220 Q285 245 275 280" stroke="#a87542" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <ellipse cx="190" cy="125" rx="62" ry="28" fill="#66b85c" transform="rotate(25 190 125)"/>
+    <path d="M250 145 Q215 125 160 117" stroke="#39834b" stroke-width="4" fill="none"/>
+    <ellipse cx="310" cy="105" rx="62" ry="28" fill="#79c967" transform="rotate(-25 310 105)"/>
+    <path d="M250 125 Q290 105 350 96" stroke="#39834b" stroke-width="4" fill="none"/>
+    <path d="M250 85 Q220 55 205 45 M250 85 Q280 55 295 45" stroke="#39834b" stroke-width="5" fill="none"/>
+    <circle cx="250" cy="35" r="18" fill="#ffd44f"/><circle cx="225" cy="35" r="15" fill="#ff9eb0"/><circle cx="275" cy="35" r="15" fill="#ff9eb0"/><circle cx="250" cy="10" r="15" fill="#ff9eb0"/><circle cx="250" cy="60" r="15" fill="#ff9eb0"/>
+    <circle cx="325" cy="160" r="24" fill="#e94d42"/><path d="M325 137 q-3 -12 8 -15" stroke="#39834b" stroke-width="5" fill="none"/>
+    <path d="M100 280 Q250 260 400 280" stroke="#8ccf75" stroke-width="9" fill="none" stroke-linecap="round"/>
+  </svg>
+  <div class="note">🌼 Siap belajar? Ajak guru untuk mendampingi, ya!</div>
+  <div class="actions"><button onclick="showPage('learn')">MULAI BELAJAR ▶</button></div>
+</section>
+
+<section class="panel page" id="learn">
+  <div class="topline"><span>📚 MATERI</span><div class="progress"><span id="learnProgress"></span></div></div>
+  <h2>Bagian-Bagian Tanaman</h2>
+  <p>Tanaman memiliki beberapa bagian. Setiap bagian mempunyai tugas yang penting.</p>
+  <div class="cards">
+    <article class="card"><span class="emoji">🟤</span><h3>Akar</h3><p>Akar berada di dalam tanah. Akar membantu tanaman berdiri kuat dan menyerap air.</p></article>
+    <article class="card"><span class="emoji">🟩</span><h3>Batang</h3><p>Batang menopang tanaman dan membantu menyalurkan air ke bagian tanaman.</p></article>
+    <article class="card"><span class="emoji">🍃</span><h3>Daun</h3><p>Daun membantu tanaman membuat makanan dengan bantuan sinar matahari.</p></article>
+    <article class="card"><span class="emoji">🌸</span><h3>Bunga</h3><p>Bunga dapat berkembang menjadi buah pada jenis tanaman tertentu.</p></article>
+    <article class="card"><span class="emoji">🍅</span><h3>Buah</h3><p>Buah melindungi biji. Beberapa buah dapat dimakan.</p></article>
+  </div>
+  <div class="note">💡 Ayo tunjuk bagian tanaman pada gambar atau tanaman yang ada di sekitar kita!</div>
+  <div class="actions"><button class="soft" onclick="showPage('home')">◀ Kembali</button><button onclick="showPage('match')">BERMAIN ▶</button></div>
+</section>
+
+<section class="panel page" id="match">
+  <h2>🎯 Permainan: Pasangkan Bagian Tanaman</h2>
+  <p>Sentuh satu gambar, lalu sentuh nama bagian tanaman yang cocok.</p>
+  <div class="matchgrid" id="matchGrid"></div>
+  <div class="feedback" id="matchFeedback" aria-live="polite">Pilih gambar dan nama yang sesuai, ya!</div>
+  <div class="actions"><button class="soft" onclick="showPage('learn')">◀ Materi</button><button onclick="resetMatch()">Ulangi permainan</button><button class="secondary" onclick="startQuiz()">Lanjut kuis ▶</button></div>
+</section>
+
+<section class="panel page" id="quiz">
+  <div class="topline"><span>⭐ KUIS CERIA</span><span id="quizCount">Soal 1 dari 5</span></div>
+  <div class="quizbox">
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <div class="feedback" id="quizFeedback" aria-live="polite">Pilih jawaban yang menurutmu benar.</div>
+    <button id="nextBtn" onclick="nextQuestion()" disabled>Lanjut ▶</button>
+  </div>
+  <div class="actions"><button class="soft" onclick="showPage('match')">◀ Kembali ke permainan</button></div>
+</section>
+
+<section class="panel page" id="finish">
+  <h1>HEBAT SEKALI! 🎉</h1>
+  <p>Kamu sudah belajar mengenal bagian-bagian tanaman.</p>
+  <div style="font-size:5rem;text-align:center">🌱🌸🍅</div>
+  <div class="note" id="finalScore">Terus semangat menyayangi dan merawat tanaman, ya!</div>
+  <p>Terima kasih sudah belajar hari ini. Sampai jumpa!</p>
+  <div class="actions"><button onclick="showPage('home')">Belajar lagi ↻</button></div>
+</section>
+</main>
+<footer>Media pembelajaran digital • Tanaman dan Bagian-Bagiannya</footer>
+<script>
+const pages=["home","learn","match","quiz","finish"];
+function showPage(id){pages.forEach(p=>document.getElementById(p).classList.toggle("active",p===id));window.scrollTo({top:0,behavior:"smooth"});}
+const pairs=[{emoji:"🟤",pic:"Akar",name:"Akar"},{emoji:"🟩",pic:"Batang",name:"Batang"},{emoji:"🍃",pic:"Daun",name:"Daun"},{emoji:"🌸",pic:"Bunga",name:"Bunga"},{emoji:"🍅",pic:"Buah",name:"Buah"}];
+let first=null,matched=new Set();
+function renderMatch(){
+ const grid=document.getElementById("matchGrid");grid.innerHTML="";
+ const images=[...pairs],names=[...pairs].sort(()=>Math.random()-.5);
+ images.forEach((p,i)=>{let b=document.createElement("button");b.className="matchitem";b.dataset.kind="pic";b.dataset.value=p.name;b.innerHTML=`<span style="font-size:2.5rem;display:block">${p.emoji}</span><small>Gambar ${i+1}</small>`;b.onclick=()=>chooseMatch(b);grid.appendChild(b);});
+ names.forEach((p,i)=>{let b=document.createElement("button");b.className="matchitem";b.dataset.kind="name";b.dataset.value=p.name;b.textContent=p.name;b.onclick=()=>chooseMatch(b);grid.appendChild(b);});
+}
+function chooseMatch(el){
+ if(el.classList.contains("done"))return;
+ if(!first){first=el;el.classList.add("selected");document.getElementById("matchFeedback").textContent="Sekarang pilih nama yang cocok.";return;}
+ if(first===el){first.classList.remove("selected");first=null;return;}
+ if(first.dataset.kind===el.dataset.kind){first.classList.remove("selected");first=el;el.classList.add("selected");document.getElementById("matchFeedback").textContent="Pilih pasangan dari jenis yang berbeda.";return;}
+ if(first.dataset.value===el.dataset.value){
+  first.classList.remove("selected");first.classList.add("done");el.classList.add("done");matched.add(el.dataset.value);
+  document.getElementById("matchFeedback").className="feedback good";document.getElementById("matchFeedback").textContent="Hebat! Pasanganmu benar. 🌟";first=null;
+  if(matched.size===5)document.getElementById("matchFeedback").textContent="Luar biasa! Semua pasangan sudah benar. Kamu siap ikut kuis!";
+ }else{
+  document.getElementById("matchFeedback").className="feedback try";document.getElementById("matchFeedback").textContent="Belum cocok. Ayo coba lagi!";first.classList.remove("selected");first=null;
+ }
+}
+function resetMatch(){matched.clear();first=null;let f=document.getElementById("matchFeedback");f.className="feedback";f.textContent="Pilih gambar dan nama yang sesuai, ya!";renderMatch();}
+const questions=[
+ {q:"Bagian tanaman yang berada di dalam tanah adalah ...",opts:[["🟤","Akar"],["🍃","Daun"],["🌸","Bunga"]],a:"Akar"},
+ {q:"Bagian yang menopang tanaman agar berdiri tegak adalah ...",opts:[["🍅","Buah"],["🟩","Batang"],["🌸","Bunga"]],a:"Batang"},
+ {q:"Bagian tanaman yang biasanya berwarna hijau dan membantu membuat makanan adalah ...",opts:[["🍃","Daun"],["🟤","Akar"],["🍅","Buah"]],a:"Daun"},
+ {q:"Bagian tanaman yang indah dan dapat berkembang menjadi buah adalah ...",opts:[["🟩","Batang"],["🌸","Bunga"],["🟤","Akar"]],a:"Bunga"},
+ {q:"Bagian tanaman yang dapat melindungi biji adalah ...",opts:[["🍅","Buah"],["🍃","Daun"],["🟩","Batang"]],a:"Buah"}
+];
+let qi=0,score=0,answered=false;
+function startQuiz(){qi=0;score=0;showPage("quiz");renderQuestion();}
+function renderQuestion(){
+ answered=false;document.getElementById("quizCount").textContent=`Soal ${qi+1} dari ${questions.length}`;
+ const q=questions[qi];document.getElementById("question").textContent=q.q;
+ const opts=document.getElementById("options");opts.innerHTML="";
+ q.opts.forEach(o=>{let b=document.createElement("button");b.className="option";b.innerHTML=`<span class="emoji">${o[0]}</span>${o[1]}`;b.onclick=()=>answer(o[1],b);opts.appendChild(b);});
+ let f=document.getElementById("quizFeedback");f.className="feedback";f.textContent="Pilih jawaban yang menurutmu benar.";
+ let n=document.getElementById("nextBtn");n.disabled=true;n.textContent=qi===questions.length-1?"Lihat hasil":"Lanjut ▶";
+}
+function answer(choice,btn){
+ if(answered)return;answered=true;let q=questions[qi],f=document.getElementById("quizFeedback");
+ document.querySelectorAll(".option").forEach(b=>b.disabled=true);
+ if(choice===q.a){score++;f.className="feedback good";f.textContent="Hebat! Jawabanmu benar. 🌟";}
+ else{f.className="feedback try";f.textContent=`Belum tepat. Jawaban yang benar adalah ${q.a}. Ayo tetap semangat!`;}
+ document.getElementById("nextBtn").disabled=false;
+}
+function nextQuestion(){if(!answered)return;if(qi<questions.length-1){qi++;renderQuestion();}else{document.getElementById("finalScore").textContent=`Kamu menjawab ${score} dari ${questions.length} soal dengan benar. Terus berlatih dan sayangi tanaman!`;showPage("finish");}}
+renderMatch();
+</script>
+</body>
+</html>
